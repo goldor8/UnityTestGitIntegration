@@ -11,3 +11,7 @@ When committing, you will get a popup that will ask you to run the tests. If you
 - To view the loaded test results you need to open the `Test Report` window. You can do this by going to `Window -> General -> Performance Test Report`.
 - To open the `Test History Explorer` window go to `Tool -> Unity Test Git Integration -> Test History Explorer`.
 - If you want to run the tests manually you can go to `Tool -> Unity Test Git Integration -> Create Test Report`.
+
+## License
+
+This project is licensed under the LGPLv3 License - see the [License](https://www.gnu.org/licenses/lgpl+gpl-3.0.txt)
