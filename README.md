@@ -1,7 +1,7 @@
 # Unity Test Git Integration
 Unity Test Git Integration is a tool to run Unity tests and generate test reports connected to Git commits.
 
-Its main objective is to monitor project performance over time using performance tests.
+Its main objective is to monitor performance throughout the project.
 
 When committing, you will get a popup that will ask you to run the tests. If you choose to run the tests it will automatically run the tests and store the result linked to the commit.
 

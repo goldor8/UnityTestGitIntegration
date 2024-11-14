@@ -2,7 +2,7 @@
     "name": "fr.goldor.unity-test-git-integration",
     "version": "1.0.0",
     "displayName": "Unity Test Git Integration",
-    "description": "This package allow you to automatically run unity tests on git push and create an history of the results.",
+    "description": "This package allow you to automatically run unity tests on Git commit and create an history of the results. This makes it possible to monitor performance throughout the project.",
     "unity": "2023.3",
     "unityRelease": "23f1",
     "license": "LGPL-3.0-only",
