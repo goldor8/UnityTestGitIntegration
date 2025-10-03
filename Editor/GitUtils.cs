@@ -8,7 +8,6 @@ namespace UnityTestGitIntegration
 {
     public static class GitUtils
     {
-        private static bool _running = true;
         private static readonly string _repoPath = Directory.GetCurrentDirectory() + "/.git";
 
         private static string _lastBranchName;
@@ -20,6 +19,8 @@ namespace UnityTestGitIntegration
 
         public static event OnCheckoutDetectedDelegate OnCheckoutDetected;
         public static event OnLocalCommitDetectedDelegate OnLocalCommitDetected;
+        
+        private static float lastCheckTime = 0;
 
         [InitializeOnLoadMethod]
         private static void InitGitUpdateListener()
@@ -33,19 +34,16 @@ namespace UnityTestGitIntegration
             using var repo = new Repository(_repoPath);
             _lastBranchName = repo.Head.FriendlyName;
             _lastCommitSha = repo.Head.Tip.Sha;
-
-            EditorApplication.quitting += () => _running = false;
-
-            Thread listener = new Thread(() =>
+            
+            lastCheckTime = Time.realtimeSinceStartup;
+            EditorApplication.update += () =>
             {
-                while (_running)
+                if (Time.realtimeSinceStartup - lastCheckTime > 1)
                 {
                     CheckForChanges();
-                    Thread.Sleep(1000);
+                    lastCheckTime = Time.realtimeSinceStartup;
                 }
-            });
-
-            listener.Start();
+            };
         }
 
         private static void CheckForChanges()
